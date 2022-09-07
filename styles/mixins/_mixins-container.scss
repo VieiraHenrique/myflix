@@ -1,0 +1,18 @@
+@mixin container($max-width: $laptop) {
+    display: grid;
+    grid-template-columns:
+        [full-start] minmax(5vw, 1fr) [container-start] repeat(12, [col-start] minmax(11px, $max-width / 12) [col-end])
+        [container-end]
+        minmax(5vw, 1fr) [full-end];
+    > * {
+        grid-column: container-start / container-end;
+        grid-row: 1;
+    }
+
+    @include laptop13 {
+        grid-template-columns:
+            [full-start] minmax(11.5vw, 1fr) [container-start] repeat(12, [col-start] minmax(11px, $max-width / 12) [col-end])
+            [container-end]
+            minmax(11.5vw, 1fr) [full-end];
+    }
+}

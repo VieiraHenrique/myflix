@@ -1,0 +1,60 @@
+.popup {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+
+    &-backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.4);
+        backdrop-filter: blur(10px);
+    }
+
+    .wrapper {
+        position: relative;
+        z-index: 999;
+        padding: 5%;
+        width: 100%;
+        height: fit-content;
+        display: grid;
+        background: linear-gradient(50deg, $black 50%, $red 50%);
+        grid-template-columns: 1fr 1fr;
+        max-width: 1000px;
+        max-height: 80vh;
+    }
+
+    &-main {
+        height: 100%
+    }
+
+    &-details {
+        @extend .mt-5;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    h1 {
+        text-align: left;
+    }
+
+    img {
+        object-fit: contain;
+        border: 10px solid $white;
+        max-height: 500px;
+        height: 100%;
+    }
+
+    .overview {
+        line-height: 2;
+    }
+}

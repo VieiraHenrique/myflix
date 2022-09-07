@@ -1,0 +1,32 @@
+.header {
+    @include container;
+    height: 12rem;
+    .wrapper {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 40px;
+        
+        @include ipad {
+            justify-content: space-between;
+            flex-direction: row;
+        }
+    }
+
+    .title {
+        color: $white;
+        display: flex;
+        gap: 10px;
+        @extend .title-secondary;
+        font-weight: bold;
+    }
+
+    &-list {
+        position: relative;
+        bottom: -15px;
+        display: flex;
+        gap: 10px;
+
+    }
+}
