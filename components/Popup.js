@@ -4,7 +4,6 @@ import { globalContext } from "../context/GlobalContext";
 
 export default function Popup() {
     const { togglePopup, popupFilm } = useContext(globalContext);
-    console.log(popupFilm);
 
     return (
         <div className="popup">

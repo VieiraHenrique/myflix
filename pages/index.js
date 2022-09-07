@@ -22,15 +22,17 @@ export default function HomePage({ data }) {
 }
 
 export async function getServerSideProps(ctx) {
-    console.log(ctx.query);
+    let data;
 
-    console.log(requests);
-
-    const { data } = await axios.get(API_BASE + requests[ctx.query.results].url);
+    if (ctx.query.results) {
+        data = await axios.get(API_BASE + requests[ctx.query.results].url);
+    } else {
+        data = await axios.get(API_BASE + requests["trending"].url);
+    }
 
     return {
         props: {
-            data,
+            data: data.data,
         },
     };
 }
